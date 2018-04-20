@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y -t unstable \
     wget --no-verbose "https://s3.amazonaws.com/rstudio-shiny-server-os-build/ubuntu-12.04/x86_64/shiny-server-${SHINY_SERVER_VERSION}-amd64.deb" -O shinystudio.deb && \
     gdebi -n shinystudio.deb && \
     rm -f shinystudio.deb && \
-    R -e "install.packages(c('shiny', 'rmarkdown', 'tidyverse', 'magrittr', 'lubridate', 'plotly', 'shinydashboard', 'DT', 'dplyr'), repos='https://cran.rstudio.com/')" && \
+    R -e "install.packages(c('shiny', 'rmarkdown', 'tidyverse', 'magrittr', 'lubridate', 'plotly', 'shinydashboard', 'DT', 'dplyr', 'aws.s3', 'aws.ec2metadata'), repos='https://cran.rstudio.com/')" && \
     cp -R /usr/local/lib/R/site-library/shiny/examples/* /srv/shiny-server/ && \
     rm -rf /var/lib/apt/lists/* && \
     mkdir -p /var/log/shiny-server && \
